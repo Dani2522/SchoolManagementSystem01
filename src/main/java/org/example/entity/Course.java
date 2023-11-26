@@ -55,14 +55,13 @@ public class Course {
         this.version = version;
     }
 
+    public Course() {
+    }
+
+
     @Override
     public String toString() {
-        return "Course{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", credits=" + credits +
-                ", version='" + version + '\'' +
-                '}';
+        return String.format("%-10s| %-10s | %-10s | %-10s | %-10s | %s",
+                getId(), getName(), getDescription(), getDescription(), getCredits(), getVersion());
     }
 }

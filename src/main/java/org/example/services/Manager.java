@@ -9,10 +9,10 @@ import java.util.*;
 
 public class Manager implements AcademicServicesI {
 
-    private List<Student> listStudy;
-    private List<Course> listCourse;
+    private List<Student> listStudy = new ArrayList<>();
+    private List<Course> listCourse = new ArrayList<>();
 
-    HashMap<String,List<String>> seeker;
+    HashMap<Integer,List<Course>> seeker = new HashMap<>();
 
     Service service = new Service();
 
@@ -59,23 +59,51 @@ public class Manager implements AcademicServicesI {
     @Override
     public void addCourse(Course course) {
         System.out.println("please, enter  ID course");
-        int id = sc.nextInt();
-        System.out.println("please, enter name course");
-        String name = sc.next();
-        System.out.println("please, enter a description");
-        String decription = sc.next();
-        System.out.println("please, enter  the credits");
-        Integer credits = sc.nextInt();
-        System.out.println("please, enter the version");
-        String version = sc.next();
+         course.setId(sc.nextInt());
 
-        course = new Course (id,name,decription,credits,version);
+
+        System.out.println("please, enter name course");
+        course.setName(sc.next());
+        System.out.println("please, enter a description");
+        course.setDescription(sc.next());
+        System.out.println("please, enter  the credits");
+        course.setCredits(sc.nextInt());
+        System.out.println("please, enter the Course version");
+        course.setVersion(sc.next());
+
+        course = new Course (course.getId(),course.getName(),course.getDescription(),course.getCredits(),course.getVersion());
         listCourse.add(course);
+        System.out.println(course);
+
 
     }
 
     @Override
-    public void enrollStudentCourse(Student student, int idCourse) {
+    public void enrollStudentCourse(Student student,Course course) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter the Student id");
+
+        student.setId(scanner.nextInt());
+
+        System.out.println("Enter the Course code");
+        course.setId(scanner.nextInt());
+
+
+        // Verificar si el estudiante ya está en el HashMap
+        List<Course> enrolledCourses = seeker.getOrDefault(student.getId(), new ArrayList<>());
+
+
+        // Agregar el nuevo curso a la lista de cursos del estudiante
+        enrolledCourses.add(course);
+
+
+        // Actualizar el HashMap con la lista de cursos del estudiante
+        seeker.put(student.getId(), enrolledCourses);
+
+        System.out.println(seeker);
+        System.out.println("" +
+                ".");
 
 
     }

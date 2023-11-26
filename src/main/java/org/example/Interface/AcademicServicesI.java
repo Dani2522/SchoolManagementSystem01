@@ -6,8 +6,8 @@ import org.example.entity.Student;
 public interface AcademicServicesI {
     void studentRegistration();
     void addCourse(Course course);
-    void enrollStudentCourse(Student student,int idCourse);
     void unsubscribeStudentCourse(int idStudent, int idCourse);
 
+    void enrollStudentCourse(Student student, Course course) ;
 
 }
