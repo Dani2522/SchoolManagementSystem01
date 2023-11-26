@@ -1,13 +1,13 @@
-package org.example.services.Interface;
+package org.example.Interface;
 
-import org.example.Entity.Course;
-import org.example.Entity.Student;
+import org.example.entity.Course;
+import org.example.entity.Student;
 
 public interface AcademicServicesI {
-    void studentRegistration(Student student);
+    void studentRegistration();
     void addCourse(Course course);
     void enrollStudentCourse(Student student,int idCourse);
     void unsubscribeStudentCourse(int idStudent, int idCourse);
-    
+
 
 }

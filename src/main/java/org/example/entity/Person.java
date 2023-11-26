@@ -1,4 +1,4 @@
-package org.example.Entity;
+package org.example.entity;
 
 public abstract class Person {
     private int id;
@@ -11,6 +11,9 @@ public abstract class Person {
         this.name = name;
         this.lastName = lastName;
         this.birthday = birthday;
+    }
+
+    public Person() {
     }
 
     public int getId() {
