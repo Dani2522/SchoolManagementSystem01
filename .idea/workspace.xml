@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0b910a3-6737-4a5b-8de8-c2c6928c4893" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/exeption/SignedUp.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Interface/AcademicServicesI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Interface/AcademicServicesI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/entity/Course.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/entity/Course.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/services/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/services/Service.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

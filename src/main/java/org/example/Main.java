@@ -14,7 +14,6 @@ public class Main {
         manager.addCourse(course);
 
         Student student = new Student();
-
         manager.enrollStudentCourse(student,course);
 
 

@@ -4,6 +4,7 @@ import org.example.constans.StudentsContans;
 import org.example.entity.Course;
 import org.example.entity.Student;
 import org.example.Interface.AcademicServicesI;
+import org.example.exeption.SignedUp;
 
 import java.util.*;
 
@@ -14,47 +15,49 @@ public class Manager implements AcademicServicesI {
 
     HashMap<Integer,List<Course>> seeker = new HashMap<>();
 
-    Service service = new Service();
-
     Scanner sc = new Scanner(System.in);
 
     @Override
     public void studentRegistration() {
-        boolean studentIsInTheSystem = false;
-        int idTypebyClient = 0;
-        do {
-            System.out.println("please, enter your ID");
-             idTypebyClient = sc.nextInt();
-            int finalIdTypebyClient = idTypebyClient;
-            List<Student> ArrayList = StudentsContans.REGISTERED_STUDENT.stream().toList();
-            Student studentFoundInRegisters =  ArrayList.stream().filter(studenttocompare -> studenttocompare.getId() == finalIdTypebyClient).findFirst().orElse(null);
 
-            //studentFoundInRegisters es igual a nulo entonces el estdiante no existe
-            //studentFoundInRegisters == null
-            //studentFoundInRegisters es diferente a nulo entonces el estudiante  existe en el registro
-            //studentFoundInRegisters != null
+            boolean studentIsInTheSystem = false;
+            int idTypebyClient = 0;
 
-            if (studentFoundInRegisters != null) {
-                studentIsInTheSystem = true;
-                System.out.println("This user is already in the system, try another one");
-            }else {
-                studentIsInTheSystem = false;
-            }
-        }while (studentIsInTheSystem);
+                System.out.println("please, enter your ID");
+                idTypebyClient = sc.nextInt();
+                int finalIdTypebyClient = idTypebyClient;
+                List<Student> ArrayList = StudentsContans.REGISTERED_STUDENT.stream().toList();
+                Student studentFoundInRegisters = ArrayList.stream().filter(studenttocompare -> studenttocompare.getId() == finalIdTypebyClient).findFirst().orElse(null);
 
-        System.out.println("please, enter your name");
-        String name = sc.next();
-        System.out.println("please, enter your Lastname");
-        String lastName = sc.next();
-        System.out.println("please, enter your date of birth DD/MM/AAAA");
-        String birthday = sc.next();
-        System.out.println("please, enter your status: enrolled, inactive, graduated");
-        String status= sc.next();
+                //studentFoundInRegisters es igual a nulo entonces el estdiante no existe
+                //studentFoundInRegisters == null
+                //studentFoundInRegisters es diferente a nulo entonces el estudiante  existe en el registro
+                //studentFoundInRegisters != null
 
-        service.getStudentList().add(new Student(idTypebyClient,name,lastName,birthday,status));
-        System.out.println(service.getStudentList().toString());
+                if (studentFoundInRegisters != null) {
+                    studentIsInTheSystem = true;
+                    System.out.println(" The student is already registered, enter a new ID");
+
+                } else {
+                    studentIsInTheSystem = false;
+
+                    System.out.println("please, enter your name");
+                    String name = sc.next();
+                    System.out.println("please, enter your Lastname");
+                    String lastName = sc.next();
+                    System.out.println("please, enter your date of birth DD/MM/AAAA");
+                    String birthday = sc.next();
+                    System.out.println("please, enter your status: enrolled, inactive, graduated");
+                    String status = sc.next();
+
+                    listStudy.add(new Student(idTypebyClient, name, lastName, birthday, status));
+                    System.out.println(listStudy.toString());
+
+                }
 
     }
+
+
 
     @Override
     public void addCourse(Course course) {
